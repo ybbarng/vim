@@ -1,6 +1,80 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+
+"스페이스 사용
+set backspace=eol,start,indent
+
+"커서위치 항상 보이기
+"set ru
+
+"줄 번호 표시
+set number "set nu
+
+"줄 번호 표시 너비 설정
+set nuw=5
+
+"탭 크기 설정
+set ts=4
+set sw=4
+
+set softtabstop=4
+set shiftwidth=4
+
+"자동 줄바꿈 안함
+"set nowrap
+
+"마지막 편집 위치 복원 기능
+"au BufReadPost *
+"\if line("'\"")>0 && line("'\"") <= line("$") |
+"\ exe "norm g'￦"" |
+"\endif
+
+"새로 추가된 괄호 짝 보여주기
+set sm
+
+"검색어 강조
+set hlsearch "set hls
+
+"검색시 대소문자 구별 안함
+set ignorecase "set ic
+
+
+set autoindent
+set visualbell
+set cindent
+set smartindent
+
+set incsearch
 syntax on
+
+"파일 확장자에 따른 차별 옵션
+filetype on
 filetype plugin indent on
-set number
+
+
+set background=dark
 colorscheme evening
+set history=1000
+set showmatch
+
+set noexpandtab
+
+"긴 줄을 화면에 보이는 대로 이동
+map k gk
+map j gj
+map <up> gk
+map <down> gj
+imap <up> <c-o>gk
+imap <down> <c-o>gj
+
+autocmd FileType ocaml set makeprg=ocaml\ -init\ %
+
+" for python code auto convert tab to 4 space
+"   expandtab : Insert several space when tab key is pressed. You can enter a
+"             real tab character use Ctrl+V<Tab>
+"   tabstop : How many spaces in one tab
+"   shifhtwidth : for indentation
+"   softtabstop : to remove spaces at once
+"   retab : convert all tabs in file according to setting
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype python retab
