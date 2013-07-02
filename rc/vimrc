@@ -78,3 +78,7 @@ autocmd FileType ocaml set makeprg=ocaml\ -init\ %
 "   retab : convert all tabs in file according to setting
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype python retab
+
+language en_US.UTF-8
+let g:Powerline_symbols = 'fancy'
+set laststatus=2
