@@ -53,7 +53,7 @@ filetype plugin indent on
 
 
 set background=dark
-colorscheme evening
+colorscheme ir_black
 set history=1000
 set showmatch
 
