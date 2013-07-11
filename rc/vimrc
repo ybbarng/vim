@@ -79,6 +79,10 @@ autocmd FileType ocaml set makeprg=ocaml\ -init\ %
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype python retab
 
+autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype javasrcipt setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
 language en_US.UTF-8
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
