@@ -91,3 +91,8 @@ autocmd Filetype css setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 language en_US.UTF-8
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
+
+" for syntastic
+let g:syntastic_gjslint_conf=" --nojsdoc"
+let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers = ['gjslint']
