@@ -96,3 +96,9 @@ set laststatus=2
 let g:syntastic_gjslint_conf=" --nojsdoc"
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['gjslint']
+
+" for NERD Tree
+"" press ctrl + n to toggle NERD Tree
+map <C-n> :NERDTreeToggle<CR>
+"" auto close vim if the only window left open is a NERD Tree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
