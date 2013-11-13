@@ -93,8 +93,10 @@ let g:Powerline_symbols = 'fancy'
 set laststatus=2
 
 " for syntastic
-let g:syntastic_gjslint_conf=" --nojsdoc"
-let g:syntastic_check_on_open=1
+" no js doc error : 아래 줄이 되어야 하는데 안돼서 그 밑의 인자로 함
+" let g:syntastic_javascript_gjslint_conf=" --nojsdoc"
+let g:syntastic_javascript_gjslint_conf = " --disable 0220"
+let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['gjslint']
 
 " for NERD Tree
