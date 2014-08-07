@@ -11,9 +11,6 @@ set backspace=eol,start,indent
 "커서위치 항상 보이기
 "set ru
 
-"Relative Number setting
-set relativenumber
-
 "줄 번호 표시
 set number "set nu
 
@@ -86,9 +83,10 @@ autocmd FileType ocaml set makeprg=ocaml\ -init\ %
 "   softtabstop : to remove spaces at once
 "   retab : convert all tabs in file according to setting
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-"autocmd Filetype python retab
+autocmd Filetype python retab
 
-autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype html setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype htmldjango setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
