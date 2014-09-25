@@ -27,6 +27,9 @@ set shiftwidth=4
 "자동 줄바꿈 안함
 "set nowrap
 
+"자동 줄바꿈 사용
+set wrap
+
 "마지막 편집 위치 복원 기능
 "au BufReadPost *
 "\if line("'\"")>0 && line("'\"") <= line("$") |
