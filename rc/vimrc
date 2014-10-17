@@ -52,6 +52,13 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Perfom all your vim insert mode completions with Tab
 Plugin 'ervandew/supertab'
 
+" snipMate.vim aims to be a concise vim script that implements some of
+" TextMate's snippets features in Vim.
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -212,6 +219,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
+
+" for selecting completion of supertab
+let g:SuperTabDefaultCompletionType = 'context'
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
