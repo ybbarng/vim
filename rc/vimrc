@@ -48,6 +48,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
 " it has bug on older than vim 7.4 patch 1-7
 " Bundle "pangloss/vim-javascript"
+"
+" Perfom all your vim insert mode completions with Tab
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
