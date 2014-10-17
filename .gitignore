@@ -5,3 +5,5 @@
 *.un~
 Session.vim
 bundle/
+eclim/
+plugin/
