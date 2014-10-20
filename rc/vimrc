@@ -261,3 +261,7 @@ if 'VIRTUAL_ENV' in os.environ:
     execfile(activate_this, dict(__file__=activate_this))
 EOF
 endif
+
+" to avoid the error when the python of vim is different from the python of
+" ycmd server : The ycmd server SHUT DOWN
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
