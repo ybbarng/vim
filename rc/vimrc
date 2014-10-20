@@ -49,8 +49,6 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " it has bug on older than vim 7.4 patch 1-7
 " Bundle "pangloss/vim-javascript"
 "
-" Perfom all your vim insert mode completions with Tab
-Plugin 'ervandew/supertab'
 
 " snipMate.vim aims to be a concise vim script that implements some of
 " TextMate's snippets features in Vim.
@@ -58,6 +56,10 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+
+" YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine
+" for Vim.
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -220,8 +222,8 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
 
-" for selecting completion of supertab
-let g:SuperTabDefaultCompletionType = 'context'
+" for connect eclim and YouCompleteMe
+let g:EclimCompletionMethod = 'omnifunc'
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
