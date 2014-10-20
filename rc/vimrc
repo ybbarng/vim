@@ -50,18 +50,18 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Bundle "pangloss/vim-javascript"
 "
 
-" snipMate.vim aims to be a concise vim script that implements some of
-" TextMate's snippets features in Vim.
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" UltiSnips is the ultimate solution for snippets in Vim. It has tons of
+" features and is very fast.
+Plugin 'SirVer/ultisnips'
+
+" Snippets
 Plugin 'honza/vim-snippets'
 
 " YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine
 " for Vim.
 Plugin 'Valloric/YouCompleteMe'
 
-" To use tab both YouCompleteMe and snipMate
+" To use tab both YouCompleteMe and UltiSnips
 Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
@@ -228,10 +228,16 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
 " for connect eclim and YouCompleteMe
 let g:EclimCompletionMethod = 'omnifunc'
 
-" to use tab both YouCompleteMe and snipMate
+" to use tab both YouCompleteMe and UltiSnips
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+let g:UltiSnipsEditSplit="vertical"
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
