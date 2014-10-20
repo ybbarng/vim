@@ -61,6 +61,9 @@ Plugin 'honza/vim-snippets'
 " for Vim.
 Plugin 'Valloric/YouCompleteMe'
 
+" To use tab both YouCompleteMe and snipMate
+Plugin 'ervandew/supertab'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -224,6 +227,11 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
 
 " for connect eclim and YouCompleteMe
 let g:EclimCompletionMethod = 'omnifunc'
+
+" to use tab both YouCompleteMe and snipMate
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
