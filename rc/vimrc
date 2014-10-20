@@ -243,6 +243,11 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 
+" for avoid conflict between YouCompleteMe and python-mode
+let g:ycm_filetype_blacklist = {
+	\ 'python': 1
+\}
+
 " Add the virtualenv's site-packages to vim path
 if has('python')
 py << EOF
