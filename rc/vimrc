@@ -239,6 +239,10 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 let g:UltiSnipsEditSplit="vertical"
 
+" for debug
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+
 " Add the virtualenv's site-packages to vim path
 if has('python')
 py << EOF
