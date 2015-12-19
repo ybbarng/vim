@@ -23,7 +23,10 @@ Plugin 'othree/html5.vim'
 
 " Powerline, a utility plugin which allows you to create better-looking, more
 " functional vim statuslines
-Plugin 'Lokaltog/vim-powerline'
+" Plugin 'Lokaltog/vim-powerline'
+
+" vim-airline, Lean & mean status/tabline for vim that's light as air.
+Plugin 'bling/vim-airline'
 
 " Syntastic, Syntax checking hacks for vim
 Plugin 'scrooloose/syntastic'
@@ -52,17 +55,19 @@ Plugin 'nathanaelkane/vim-indent-guides'
 
 " UltiSnips is the ultimate solution for snippets in Vim. It has tons of
 " features and is very fast.
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 
 " Snippets
 Plugin 'honza/vim-snippets'
 
 " YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine
 " for Vim.
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " To use tab both YouCompleteMe and UltiSnips
 Plugin 'ervandew/supertab'
+
+Plugin 'naseer/logcat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -140,7 +145,7 @@ colorscheme ir_black
 set history=1000
 set showmatch
 
-set noexpandtab
+set expandtab
 
 set noignorecase
 
@@ -168,6 +173,8 @@ autocmd Filetype html setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype htmldjango setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype sql setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype markdown setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 language en_US.UTF-8
 let g:Powerline_symbols = 'fancy'
@@ -228,6 +235,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
 " for connect eclim and YouCompleteMe
 let g:EclimCompletionMethod = 'omnifunc'
 
+" Disable eclim javascript validation
+let g:EclimJavascriptValidate = 0
+
 " to use tab both YouCompleteMe and UltiSnips
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -238,6 +248,11 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 let g:UltiSnipsEditSplit="vertical"
+
+"for vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='bubblegum'
+
 
 " for debug
 let g:ycm_server_keep_logfiles = 1
@@ -265,3 +280,5 @@ endif
 " to avoid the error when the python of vim is different from the python of
 " ycmd server : The ycmd server SHUT DOWN
 let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+
+set cursorline
