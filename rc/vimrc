@@ -18,6 +18,9 @@ Plugin 'scrooloose/nerdtree'
 " Fugitive allows use git in vim
 Plugin 'tpope/vim-fugitive'
 
+" more character information for 'ga' or ':ascii'
+Plugin 'tpope/vim-characterize'
+
 " html5, HTML5 + inline SVG omnicomplete funtion, indent and syntax for Vim
 Plugin 'othree/html5.vim'
 
