@@ -182,6 +182,9 @@ autocmd Filetype css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype sql setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype markdown setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
+" for clash
+autocmd Filetype cpp setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
 language en_US.UTF-8
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
