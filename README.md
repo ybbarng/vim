@@ -9,6 +9,7 @@ cd .vim
 git submodule init
 git submodule update
 cd bundle/Vundle.vim
+git checkout master
 git pull origin master
 vim
 ```
