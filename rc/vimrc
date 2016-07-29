@@ -79,6 +79,9 @@ Plugin 'ervandew/supertab'
 
 Plugin 'naseer/logcat'
 
+" Run your favorite search tool from Vim, with an enhanced results list.
+Plugin 'mileszs/ack.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -304,3 +307,8 @@ endif
 let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
 
 set cursorline
+
+" If ag is available, use it rather than ack
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
