@@ -82,6 +82,13 @@ Plugin 'naseer/logcat'
 " Run your favorite search tool from Vim, with an enhanced results list.
 Plugin 'mileszs/ack.vim'
 
+" This is a Vim plugin that provides Rust file detection, syntax highlighting,
+" formatting, Syntastic integration, and more.
+Plugin 'rust-lang/rust.vim'
+
+" Syntax highlighting for TOML
+Plugin 'cespare/vim-toml'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
