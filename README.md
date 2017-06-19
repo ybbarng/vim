@@ -20,8 +20,13 @@ vim
 ```
 
 ## NeoVim on Windows10
-Do git clone https://github.com/ybbarng/vim.git vimfiles in %USERPROFILE%
-Copy vimfiles\rc\vimrc to %USERPROFILE%\AppData\Local\nvim\ginit.vim
-Copy vimfiles\colors to %USERPROFILE%\AppData\Local\nvim\
-Edit rtp directory in ginit.vim
+cd %USERPROFILE%
+git clone https://github.com/ybbarng/vim.git vimfiles
+Copy vimfiles\rc\vimrc to %USERPROFILE%\AppData\Local\nvim\init.vim
+Copy vimfiles\rc\ginit.vim to %USERPROFILE%\AppData\Local\nvim\ginit.vim
+Copy vimfiles\colors to %USERPROFILE%\AppData\Local\nvim\colors
+Edit rtp directory in init.vim
 Do Common
+
+### Patch vim-airline
+Append ` && !has('nvim')` on the line of definition of s:is_win32term in bundle\vim-airline\autoload\airline\highlighter.vim
