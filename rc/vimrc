@@ -86,6 +86,9 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 " Syntax highlighting for TOML
 Plug 'cespare/vim-toml', {'for': 'toml'}
 
+" Prefer local repo install of eslint over global install with syntastic
+Plug 'mtscout6/syntastic-local-eslint.vim'
+
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 "Plug 'junegunn/vim-easy-align'
 
@@ -228,16 +231,27 @@ language en_US.UTF-8
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
 
+
 " for syntastic
-" no js doc error : 아래 줄이 되어야 하는데 안돼서 그 밑의 인자로 함
-" let g:syntastic_javascript_gjslint_args=" --nojsdoc"
-let g:syntastic_javascript_gjslint_args = " --disable 0220"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_javascript_checkers = ['gjslint']
+let g:syntastic_check_on_wq = 0
+
+"" for python
 let g:syntastic_python_checkers = []
-" for c++11
+
+"" for javascript - eslint airbnb
+let g:syntastic_javascript_checkers = ['eslint']
+
+"" for c++11
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
 
 " for NERD Tree
 "" press ctrl + n to toggle NERD Tree
