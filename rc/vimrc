@@ -28,7 +28,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-characterize'
 
 " html5, HTML5 + inline SVG omnicomplete funtion, indent and syntax for Vim
-Plug 'othree/html5.vim', {'for': ['html', 'js', 'css']}
+Plug 'othree/html5.vim', {'for': ['html', 'css']}
 
 " vim-airline, Lean & mean status/tabline for vim that's light as air.
 Plug 'vim-airline/vim-airline'
@@ -88,6 +88,9 @@ Plug 'cespare/vim-toml', {'for': 'toml'}
 
 " Prefer local repo install of eslint over global install with syntastic
 Plug 'mtscout6/syntastic-local-eslint.vim'
+
+" Write JavaScript ES6 easily with vim.
+Plug 'isRuslan/vim-es6'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 "Plug 'junegunn/vim-easy-align'
