@@ -5,27 +5,53 @@ endif
 " https://github.com/junegunn/vim-plug
 " vim-plug, a minimalist Vim plugin manager
 " ---- Start plug ----
-
-let plugin_path = '~/.vim/plugged' " for linux
-" let plugin_path = '$USERPROFILE/vimfiles/plugged' " for windows
-
-" Begin section
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-" Required:
-call plug#begin(plugin_path)
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
 
 " Make sure you use single quotes
 
 " Add or remove your plugins here:
 
-" NERDtree, a filesystem explorer
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+" Plugins working with variants of a word: Abbreviation, Substitution, Coercion
+Plug 'tpope/vim-abolish'
+
+" Modernized character information
+Plug 'tpope/vim-characterize'
+
+" Comment stuff out
+Plug 'tpope/vim-commentary'
+
+" Vim sugar for the UNIX shell commands that need it the most
+Plug 'tpope/vim-eunuch'
 
 " Fugitive allows use git in vim
 Plug 'tpope/vim-fugitive'
 
-" more character information for 'ga' or ':ascii'
-Plug 'tpope/vim-characterize'
+" Remaps . in a way that plugins can tap into it
+Plug 'tpope/vim-repeat'
+
+" Increase <C-A> & decrease <C-X> datetime correctly
+Plug 'tpope/vim-speeddating'
+
+" Surround provides mappings to easily delete, change and add surroundings in
+" pairs : parentheses, brackets, quotes, XML tags, and more
+Plug 'tpope/vim-surround'
+
+" Enhance netrw to mitigate the need for more disruptive \"project drawer\" style plugins
+Plug 'tpope/vim-vinegar'
+
+" Big Integer Library
+Plug 'glts/vim-magnum'
+
+" Convert number representation
+" requires magnum.vim
+Plug 'glts/vim-radical'
 
 " html5, HTML5 + inline SVG omnicomplete funtion, indent and syntax for Vim
 Plug 'othree/html5.vim', {'for': ['html', 'css']}
@@ -36,22 +62,27 @@ Plug 'vim-airline/vim-airline'
 " the official theme repository for vim-airline.
 Plug 'vim-airline/vim-airline-themes'
 
-" Syntastic, Syntax checking hacks for vim
-Plug 'scrooloose/syntastic'
-
-" Surround provides mappings to easily delete, change and add surroundings in
-" pairs : parentheses, brackets, quotes, XML tags, and more
-Plug 'tpope/vim-surround'
-
 " Python-mode contains all you need to develop python applications in Vim.
-Plug 'klen/python-mode', {'for': 'python'}
+Plug 'python-mode/python-mode', {'branch': 'develop'}
 
 " Jedi-vim, a VIM binding to the autocompletion library Jedi.
 " have to install jedi : pip install jedi
 Plug 'davidhalter/jedi-vim'
 
+" Asynchronous Lint Engine
+" a plugin providing linting (syntax checking and semantic errors) in NeoVim 0.2.0+ and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
+Plug 'dense-analysis/ale'
+
 "vim-virtualenv
-Plug 'jmcantrell/vim-virtualenv'
+" Commented out because of the following warning
+" Error detected while processing /Users/ybbarng/.vim/plugged/vim-virtualenv/autoload/virtualenv.vim:
+" line    2:
+" /must>not&exist/foo:1: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+" Press ENTER or type command to continue
+"
+" https://github.com/plytophogy/vim-virtualenv/issues/63
+"
+" Plug 'jmcantrell/vim-virtualenv'
 
 " vim-indent-guides, a plugin for visually displaying indent levels in Vim.
 Plug 'nathanaelkane/vim-indent-guides'
@@ -85,9 +116,6 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 " Syntax highlighting for TOML
 Plug 'cespare/vim-toml', {'for': 'toml'}
-
-" Prefer local repo install of eslint over global install with syntastic
-Plug 'mtscout6/syntastic-local-eslint.vim'
 
 " Write JavaScript ES6 easily with vim.
 Plug 'isRuslan/vim-es6'
@@ -156,8 +184,8 @@ set nuw=5
 set ts=4
 set sw=4
 
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 
 "자동 줄바꿈 안함
 "set nowrap
@@ -223,12 +251,12 @@ autocmd FileType ocaml set makeprg=ocaml\ -init\ %
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd Filetype python retab
 
-autocmd Filetype html setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-autocmd Filetype htmldjango setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype htmldjango setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype sql setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-autocmd Filetype markdown setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype sql setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype markdown setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " for clash
 autocmd Filetype cpp setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
@@ -236,27 +264,6 @@ autocmd Filetype cpp setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 language en_US.UTF-8
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
-
-
-" for syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"" for python
-let g:syntastic_python_checkers = []
-
-"" for javascript - eslint airbnb
-let g:syntastic_javascript_checkers = ['eslint']
-
-"" for c++11
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 
 " for NERD Tree
@@ -272,6 +279,7 @@ let g:pymode_lint_ignore = "E501,W"
 let g:pymode_rope_completion = 0
 let g:pymode_lint_cwindow = 0
 let g:pymode_options_colorcolumn = 0
+let g:pymode_python = 'python3'
 
 " python-mode
 " from https://github.com/davidhalter/jedi-vim/issues/196#issuecomment-25234295
@@ -283,7 +291,7 @@ map <Leader>pl :PyLint<CR>
 let ropevim_enable_shortcuts=1
 let g:pymode_rope_goto_def_newwin="vnew"
 let g:pymode_rope_extended_complete=1
-let g:pymode_syntax=1
+let g:pymode_syntax_all=1
 let g:pymode_syntax_builtin_objs=1
 let g:pymode_syntax_builtin_funcs=1
 let g:pymode_lint_minheight = 5   " Minimal height of pylint error window
@@ -340,6 +348,16 @@ let g:ycm_filetype_blacklist = {
 	\ 'python': 1
 \}
 
+" Map Ctrl-S to saving in both normal and insert mode
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <ESC>:w<CR>
+
+" :w!! to save with sudo
+cmap w!! %!sudo tee > /dev/null %
+
+" Press backspace to delete without copy
+noremap <backspace> "_d
+
 " Add the virtualenv's site-packages to vim path
 if has('python')
 py << EOF
@@ -367,3 +385,14 @@ endif
 
 " autocmd FileType python setlocal indentkeys-=<:>
 " autocmd FileType python setlocal indentkeys-=:
+
+" Mouse Options
+set ttyfast
+set mouse=a
+if !has('nvim')
+    set ttymouse=xterm2
+endif
+let g:pymode_lint = 0
+
+" Styles the default directory browser (netrw) similar to NERDtree
+let g:netrw_liststyle = 3

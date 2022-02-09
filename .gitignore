@@ -8,3 +8,4 @@ bundle/
 eclim/
 plugin/
 plugged/
+*.old
