@@ -92,6 +92,9 @@ Plug 'mtscout6/syntastic-local-eslint.vim'
 " Write JavaScript ES6 easily with vim.
 Plug 'isRuslan/vim-es6'
 
+" TypeScript syntax
+Plug 'leafgarland/typescript-vim'
+
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 "Plug 'junegunn/vim-easy-align'
 
